@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lorito's Prestadora - Serviços de Excelência</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0a1628;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #0a1628 0%, #1a2744 100%);
+            position: relative;
+            overflow: hidden;
+            padding: 40px 20px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 20% 50%, rgba(41, 128, 185, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(52, 152, 219, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .circuit-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            opacity: 0.3;
+            background-image: 
+                linear-gradient(90deg, rgba(52, 152, 219, 0.1) 1px, transparent 1px),
+                linear-gradient(rgba(52, 152, 219, 0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .logo-section {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .logo-circle {
+            width: 180px;
+            height: 180px;
+            margin: 0 auto 20px;
+            border: 4px solid #ffd700;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(10, 22, 40, 0.8);
+            box-shadow: 0 0 40px rgba(255, 215, 0, 0.6), inset 0 0 20px rgba(52, 152, 219, 0.3);
+            position: relative;
+        }
+
+        .logo-circle::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 2px solid #ffd700;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.15); opacity: 0.3; }
+        }
+
+        .logo-content {
+            font-size: 24px;
+            color: #3498db;
+            font-weight: bold;
+            text-align: center;
+            line-height: 1.3;
+        }
+
+        .circuit-lines {
+            position: absolute;
+            width: 70%;
+            height: 70%;
+            border: 2px solid #3498db;
+            border-radius: 10px;
+            opacity: 0.6;
+        }
+
+        .circuit-dot {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: #3498db;
+            border-radius: 50%;
+        }
+
+        .circuit-dot:nth-child(1) { top: 20%; left: 50%; }
+        .circuit-dot:nth-child(2) { top: 50%; left: 20%; }
+        .circuit-dot:nth-child(3) { top: 50%; right: 20%; }
+        .circuit-dot:nth-child(4) { bottom: 20%; left: 50%; }
+
+        h1 {
+            font-size: 4em;
+            font-weight: bold;
+            letter-spacing: 8px;
+            margin-bottom: 10px;
+            text-shadow: 0 0 20px rgba(52, 152, 219, 0.5);
+        }
+
+        .subtitle {
+            font-size: 1.8em;
+            color: #ecf0f1;
+            margin-bottom: 10px;
+            letter-spacing: 3px;
+        }
+
+        .section-title-small {
+            font-size: 1.3em;
+            color: #bdc3c7;
+            margin-bottom: 40px;
+        }
+
+        .content-section {
+            background: rgba(26, 39, 68, 0.6);
+            border: 1px solid rgba(52, 152, 219, 0.3);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 0 20px rgba(52, 152, 219, 0.2);
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .icon {
+            width: 50px;
+            height: 50px;
+            margin-right: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(52, 152, 219, 0.2);
+            border-radius: 10px;
+            font-size: 24px;
+        }
+
+        .section-header h2 {
+            font-size: 2em;
+            color: #3498db;
+        }
+
+        .section-content {
+            margin-left: 70px;
+            font-size: 1.15em;
+            line-height: 1.6;
+            color: #ecf0f1;
+        }
+
+        .values-list {
+            margin-left: 70px;
+            font-size: 1.15em;
+            color: #ecf0f1;
+        }
+
+        .footer-text {
+            text-align: center;
+            font-size: 1.2em;
+            line-height: 1.8;
+            margin: 40px 0;
+            padding: 30px;
+            background: rgba(26, 39, 68, 0.6);
+            border-radius: 15px;
+            border: 1px solid rgba(52, 152, 219, 0.3);
+        }
+
+        .contact-section {
+            text-align: center;
+            margin-top: 50px;
+            padding: 40px;
+            background: rgba(26, 39, 68, 0.8);
+            border-radius: 15px;
+            border: 1px solid rgba(52, 152, 219, 0.3);
+        }
+
+        .whatsapp-info {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin: 20px 0;
+            font-size: 1.1em;
+        }
+
+        .whatsapp-icon {
+            width: 50px;
+            height: 50px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+        }
+
+        .phone-number {
+            font-size: 2.5em;
+            color: #3498db;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        .contact-info {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin: 15px 0;
+            font-size: 1.1em;
+        }
+
+        .services-section {
+            min-height: 100vh;
+            padding: 80px 20px;
+            background: linear-gradient(135deg, #1a2744 0%, #0a1628 100%);
+            position: relative;
+        }
+
+        .services-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .services-title h1 {
+            font-size: 4em;
+            margin-bottom: 20px;
+        }
+
+        .services-subtitle {
+            font-size: 1.8em;
+            color: #bdc3c7;
+        }
+
+        .services-header {
+            font-size: 2.5em;
+            color: #3498db;
+            text-align: center;
+            margin: 50px 0 40px;
+            font-style: italic;
+            text-shadow: 0 0 10px rgba(52, 152, 219, 0.5);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .service-item {
+            background: rgba(26, 39, 68, 0.6);
+            border: 1px solid rgba(52, 152, 219, 0.3);
+            border-left: 4px solid #3498db;
+            padding: 20px 30px;
+            border-radius: 10px;
+            font-size: 1.3em;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .service-item:hover {
+            transform: translateX(10px);
+            border-left-width: 6px;
+            box-shadow: 0 0 20px rgba(52, 152, 219, 0.4);
+        }
+
+        .service-bullet {
+            width: 12px;
+            height: 12px;
+            background: #3498db;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .partners-section {
+            min-height: 100vh;
+            padding: 80px 20px;
+            background: linear-gradient(135deg, #0a1628 0%, #1a2744 100%);
+            position: relative;
+        }
+
+        .partners-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .partners-title h1 {
+            font-size: 4em;
+            margin-bottom: 20px;
+            color: #ffd700;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+        }
+
+        .partners-subtitle {
+            font-size: 1.8em;
+            color: #bdc3c7;
+        }
+
+        .partners-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .partner-card {
+            background: rgba(26, 39, 68, 0.8);
+            border: 2px solid rgba(52, 152, 219, 0.4);
+            border-radius: 15px;
+            padding: 30px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .partner-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(52, 152, 219, 0.1), transparent);
+            transition: left 0.5s;
+        }
+
+        .partner-card:hover::before {
+            left: 100%;
+        }
+
+        .partner-card:hover {
+            transform: translateY(-5px);
+            border-color: #ffd700;
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
+        }
+
+        .video-container {
+            width: 100%;
+            margin: 20px 0;
+            border-radius: 10px;
+            overflow: hidden;
+            background: #000;
+            position: relative;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .video-container video {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .video-label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+            color: #ffd700;
+            font-size: 0.95em;
+        }
+
+        .video-icon {
+            width: 30px;
+            height: 30px;
+            background: rgba(255, 215, 0, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+        }
+
+        .partner-name {
+            font-size: 1.8em;
+            color: #3498db;
+            font-weight: bold;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .partner-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 215, 0, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            border: 2px solid #ffd700;
+        }
+
+        .partner-contact {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px;
+            background: rgba(52, 152, 219, 0.1);
+            border-radius: 10px;
+            border-left: 4px solid #3498db;
+            margin-top: 15px;
+        }
+
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+
+        .contact-details {
+            flex: 1;
+        }
+
+        .contact-label {
+            font-size: 0.9em;
+            color: #bdc3c7;
+            margin-bottom: 5px;
+        }
+
+        .contact-number {
+            font-size: 1.4em;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        .category-header {
+            font-size: 2em;
+            color: #ffd700;
+            margin: 50px 0 30px;
+            text-align: center;
+            padding: 20px;
+            background: rgba(255, 215, 0, 0.1);
+            border-radius: 10px;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <!-- Primeira Página - Apresentação -->
+    <section class="hero">
+        <div class="circuit-bg"></div>
+        <div class="container">
+            <div class="logo-section">
+                <div class="logo-circle">
+                    <div class="circuit-lines">
+                        <div class="circuit-dot"></div>
+                        <div class="circuit-dot"></div>
+                        <div class="circuit-dot"></div>
+                        <div class="circuit-dot"></div>
+                    </div>
+                    <div class="logo-content">
+                        LORITO'S<br>
+                        <span style="font-size: 14px; color: #3498db;">PRESTADORA</span>
+                    </div>
+                </div>
+                <h1>LORITO'S</h1>
+                <div class="subtitle">PRESTADORA</div>
+                <div class="section-title-small">Apresentação da Empresa</div>
+            </div>
+
+            <div class="content-section">
+                <div class="section-header">
+                    <div class="icon">👥</div>
+                    <h2>Quem Somos:</h2>
+                </div>
+                <div class="section-content">
+                    Uma empresa sólida e reconhecida, atuando no mercado desde 1977.
+                </div>
+            </div>
+
+            <div class="content-section">
+                <div class="section-header">
+                    <div class="icon">✓</div>
+                    <h2>Missão:</h2>
+                </div>
+                <div class="section-content">
+                    Oferecer serviços de excelência, com tecnologia de ponta e alto padrão de qualidade.
+                </div>
+            </div>
+
+            <div class="content-section">
+                <div class="section-header">
+                    <div class="icon">👁</div>
+                    <h2>Visão:</h2>
+                </div>
+                <div class="section-content">
+                    Ser referência em prestação de serviços, reconhecida pela eficiência e profissionalismo.
+                </div>
+            </div>
+
+            <div class="content-section">
+                <div class="section-header">
+                    <div class="icon">⭐</div>
+                    <h2>Valores:</h2>
+                </div>
+                <div class="values-list">
+                    Qualidade, responsabilidade, confiança, transparência e compromisso com o cliente.
+                </div>
+            </div>
+
+            <div class="content-section">
+                <div class="section-header">
+                    <div class="icon">⚙</div>
+                    <h2>Diferenciais:</h2>
+                </div>
+                <div class="section-content">
+                    Equipe capacitada, atendimento rápido, preços justos e garantias de serviço.
+                </div>
+            </div>
+
+            <div class="content-section">
+                <div class="section-header">
+                    <div class="icon">📍</div>
+                    <h2>Atuação:</h2>
+                </div>
+                <div class="section-content">
+                    Amplo alcance regional, atuando tanto em ambientes residenciais quanto empresariais.
+                </div>
+            </div>
+
+            <div class="footer-text">
+                <strong>Lorito's Prestadora</strong> é sinônimo de confiança e qualidade,<br>
+                sempre pronta para atender às necessidades dos<br>
+                clientes com excelência e determinação.
+            </div>
+        </div>
+    </section>
+
+    <!-- Segunda Página - Serviços -->
+    <section class="services-section">
+        <div class="circuit-bg"></div>
+        <div class="container">
+            <div class="services-title">
+                <h1>LORITO'S</h1>
+                <div class="services-subtitle">Rede de prestação de serviços em geral</div>
+            </div>
+
+            <div class="services-header">Nossos Serviços:</div>
+
+            <div class="services-grid">
+                <div class="service-item">
+                    <div class="service-bullet"></div>
+                    <span>Jardinagem</span>
+                </div>
+                <div class="service-item">
+                    <div class="service-bullet"></div>
+                    <span>Construção civil em geral</span>
+                </div>
+                <div class="service-item">
+                    <div class="service-bullet"></div>
+                    <span>Dedetização</span>
+                </div>
+                <div class="service-item">
+                    <div class="service-bullet"></div>
+                    <span>Ratização</span>
+                </div>
+                <div class="service-item">
+                    <div class="service-bullet"></div>
+                    <span>Lavagem de caixa de água</span>
+                </div>
+                <div class="service-item">
+                    <div class="service-bullet"></div>
+                    <span>Limpeza de caixa de gordura</span>
+                </div>
+                <div class="service-item">
+                    <div class="service-bullet"></div>
+                    <span>Podagem em geral</span>
+                </div>
+                <div class="service-item">
+                    <div class="service-bullet"></div>
+                    <span>Eletricista</span>
+                </div>
+                <div class="service-item">
+                    <div class="service-bullet"></div>
+                    <span>Pintor</span>
+                </div>
+                <div class="service-item">
+                    <div class="service-bullet"></div>
+                    <span>Azulejista</span>
+                </div>
+                <div class="service-item">
+                    <div class="service-bullet"></div>
+                    <span>Barbearia</span>
+                </div>
+                <div class="service-item">
+                    <div class="service-bullet"></div>
+                    <span>Encanador</span>
+                </div>
+                <div class="service-item">
+                    <div class="service-bullet"></div>
+                    <span>Uber particular (Moto e carro)</span>
+                </div>
+            </div>
+
+            <div class="glowing-line"></div>
+
+            <div class="contact-section">
+                <div class="whatsapp-info">
+                    <div class="whatsapp-icon">💬</div>
+                    <div>
+                        <strong>WhatsApp</strong> (somente mensagens ou áudio):
+                    </div>
+                </div>
+                <div class="phone-number">62 98123-5702</div>
+                <div class="contact-info">
+                    <span>📍</span>
+                    <span>Atendimento regional</span>
+                </div>
+                <div class="contact-info">
+                    <span>💬</span>
+                    <span>LTDA DESDE 1977</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Terceira Página - Empresas Parceiras -->
+    <section class="partners-section">
+        <div class="circuit-bg"></div>
+        <div class="container">
+            <div class="partners-title">
+                <h1>EMPRESAS PARCEIRAS</h1>
+                <div class="partners-subtitle">Nossos Clientes e Contatos Exclusivos</div>
+            </div>
+
+            <div class="category-header">🏢 Empresas Comerciais</div>
+            <div class="partners-grid">
+                <div class="partner-card">
+                    <div class="partner-name">
+                        <div class="partner-icon">🏢</div>
+                        <span>Empresa Exemplo 1</span>
+                    </div>
+                    
+                    <div class="video-label">
+                        <div class="video-icon">🎥</div>
+                        <span>Vídeo de Apresentação (máx. 2min)</span>
+                    </div>
+                    <div class="video-container">
+                        <video controls>
+                            <source src="URL_DO_VIDEO_AQUI.mp4" type="video/mp4">
+                            Seu navegador não suporta vídeos.
+                        </video>
+                    </div>
+                    
+                    <div class="partner-contact">
+                        <div class="contact-icon">💬</div>
+                        <div class="contact-details">
+                            <div class="contact-label">WhatsApp / Telefone</div>
+                            <div class="contact-number">(62) 99999-9999</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="partner-card">
+                    <div class="partner-name">
+                        <div class="partner-icon">🏢</div>
+                        <span>Empresa Exemplo 2</span>
+                    </div>
+                    
+                    <div class="video-label">
+                        <div class="video-icon">🎥</div>
+                        <span>Vídeo de Apresentação (máx. 2min)</span>
+                    </div>
+                    <div class="video-container">
+                        <video controls>
+                            <source src="URL_DO_VIDEO_AQUI.mp4" type="video/mp4">
+                            Seu navegador não suporta vídeos.
+                        </video>
+                    </div>
+                    
+                    <div class="partner-contact">
+                        <div class="contact-icon">💬</div>
+                        <div class="contact-details">
+                            <div class="contact-label">WhatsApp / Telefone</div>
+                            <div class="contact-number">(62) 99999-9999</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="partner-card">
+                    <div class="partner-name">
+                        <div class="partner-icon">🏢</div>
+                        <span>Empresa Exemplo 3</span>
+                    </div>
+                    
+                    <div class="video-label">
+                        <div class="video-icon">🎥</div>
+                        <span>Vídeo de Apresentação (máx. 2min)</span>
+                    </div>
+                    <div class="video-container">
+                        <video controls>
+                            <source src="URL_DO_VIDEO_AQUI.mp4" type="video/mp4">
+                            Seu navegador não suporta vídeos.
+                        </video>
+                    </div>
+                    
+                    <div class="partner-contact">
+                        <div class="contact-icon">💬</div>
+                        <div class="contact-details">
+                            <div class="contact-label">WhatsApp / Telefone</div>
+                            <div class="contact-number">(62) 99999-9999</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="category-header">🏘️ Condomínios Residenciais</div>
+            <div class="partners-grid">
+                <div class="partner-card">
+                    <div class="partner-name">
+                        <div class="partner-icon">🏘️</div>
+                        <span>Condomínio Exemplo 1</span>
+                    </div>
+                    
+                    <div class="video-label">
+                        <div class="video-icon">🎥</div>
+                        <span>Vídeo de Apresentação (máx. 2min)</span>
+                    </div>
+                    <div class="video-container">
+                        <video controls>
+                            <source src="URL_DO_VIDEO_AQUI.mp4" type="video/mp4">
+                            Seu navegador não suporta vídeos.
+                        </video>
+                    </div>
+                    
+                    <div class="partner-contact">
+                        <div class="contact-icon">💬</div>
+                        <div class="contact-details">
+                            <div class="contact-label">WhatsApp / Telefone</div>
+                            <div class="contact-number">(62) 99999-9999</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="partner-card">
+                    <div class="partner-name">
+                        <div class="partner-icon">🏘️</div>
+                        <span>Condomínio Exemplo 2</span>
+                    </div>
+                    
+                    <div class="video-label">
+                        <div class="video-icon">🎥</div>
+                        <span>Vídeo de Apresentação (máx. 2min)</span>
+                    </div>
+                    <div class="video-container">
+                        <video controls>
+                            <source src="URL_DO_VIDEO_AQUI.mp4" type="video/mp4">
+                            Seu navegador não suporta vídeos.
+                        </video>
+                    </div>
+                    
+                    <div class="partner-contact">
+                        <div class="contact-icon">💬</div>
+                        <div class="contact-details">
+                            <div class="contact-label">WhatsApp / Telefone</div>
+                            <div class="contact-number">(62) 99999-9999</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="category-header">🏭 Indústrias e Fábricas</div>
+            <div class="partners-grid">
+                <div class="partner-card">
+                    <div class="partner-name">
+                        <div class="partner-icon">🏭</div>
+                        <span>Indústria Exemplo 1</span>
+                    </div>
+                    
+                    <div class="video-label">
+                        <div class="video-icon">🎥</div>
+                        <span>Vídeo de Apresentação (máx. 2min)</span>
+                    </div>
+                    <div class="video-container">
+                        <video controls>
+                            <source src="URL_DO_VIDEO_AQUI.mp4" type="video/mp4">
+                            Seu navegador não suporta vídeos.
+                        </video>
+                    </div>
+                    
+                    <div class="partner-contact">
+                        <div class="contact-icon">💬</div>
+                        <div class="contact-details">
+                            <div class="contact-label">WhatsApp / Telefone</div>
+                            <div class="contact-number">(62) 99999-9999</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="category-header">🏪 Comércio Local</div>
+            <div class="partners-grid">
+                <div class="partner-card">
+                    <div class="partner-name">
+                        <div class="partner-icon">🏪</div>
+                        <span>Comércio Exemplo 1</span>
+                    </div>
+                    
+                    <div class="video-label">
+                        <div class="video-icon">🎥</div>
+                        <span>Vídeo de Apresentação (máx. 2min)</span>
+                    </div>
+                    <div class="video-container">
+                        <video controls>
+                            <source src="URL_DO_VIDEO_AQUI.mp4" type="video/mp4">
+                            Seu navegador não suporta vídeos.
+                        </video>
+                    </div>
+                    
+                    <div class="partner-contact">
+                        <div class="contact-icon">💬</div>
+                        <div class="contact-details">
+                            <div class="contact-label">WhatsApp / Telefone</div>
+                            <div class="contact-number">(62) 99999-9999</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="partner-card">
+                    <div class="partner-name">
+                        <div class="partner-icon">🏪</div>
+                        <span>Comércio Exemplo 2</span>
+                    </div>
+                    
+                    <div class="video-label">
+                        <div class="video-icon">🎥</div>
+                        <span>Vídeo de Apresentação (máx. 2min)</span>
+                    </div>
+                    <div class="video-container">
+                        <video controls>
+                            <source src="URL_DO_VIDEO_AQUI.mp4" type="video/mp4">
+                            Seu navegador não suporta vídeos.
+                        </video>
+                    </div>
+                    
+                    <div class="partner-contact">
+                        <div class="contact-icon">💬</div>
+                        <div class="contact-details">
+                            <div class="contact-label">WhatsApp / Telefone</div>
+                            <div class="contact-number">(62) 99999-9999</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="glowing-line"></div>
+
+            <div class="footer-text" style="margin-top: 40px;">
+                <strong>Lorito's Prestadora</strong><br>
+                Conectando empresas a serviços de qualidade desde 1977
+            </div>
+        </div>
+    </section>
+</body>
+</html>
